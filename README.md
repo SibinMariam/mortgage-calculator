@@ -1,7 +1,7 @@
 # mortgage-calculator
 Its a simple Web application for mortgage calculation
 
-# Current Features and scope:
+# Current features and scope:
 
 > Based on user data calculating the Mortgage details for a Term and Amortization Period
 > Showing below calculated Number of Payments, Mortgage Payment, Principal Payments, Interest Payments, Total Cost for Term and Amortization period separately including table display.
@@ -9,11 +9,11 @@ Its a simple Web application for mortgage calculation
 > There are required validation in the form and showing error message to the user.
 > Displaying tooltip for user help text.
 
-<img width="1383" alt="Screen Shot 2021-11-29 at 12 43 48 AM" src="https://user-images.githubusercontent.com/95212148/143835384-c96187fd-a99b-448e-8322-815e82eae1e4.png">
+
 
 <img width="1375" alt="Screen Shot 2021-11-29 at 12 43 33 AM" src="https://user-images.githubusercontent.com/95212148/143835449-506e6aed-3366-40ea-adef-f4e6a992f0a4.png">
 
-
+![screencapture-localhost-4200-2021-11-29-00_48_37](https://user-images.githubusercontent.com/95212148/143836245-8de73236-1d9e-4bc5-b96e-7a45d421335a.png)
 
 # Future scope:
 
