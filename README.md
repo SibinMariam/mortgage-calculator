@@ -9,6 +9,12 @@ Its a simple Web application for mortgage calculation
 > There are required validation in the form and showing error message to the user.
 > Displaying tooltip for user help text.
 
+<img width="1383" alt="Screen Shot 2021-11-29 at 12 43 48 AM" src="https://user-images.githubusercontent.com/95212148/143835384-c96187fd-a99b-448e-8322-815e82eae1e4.png">
+
+<img width="1375" alt="Screen Shot 2021-11-29 at 12 43 33 AM" src="https://user-images.githubusercontent.com/95212148/143835449-506e6aed-3366-40ea-adef-f4e6a992f0a4.png">
+
+
+
 # Future scope:
 
 > Detailed transaction display for each period.
