@@ -4,7 +4,7 @@ Its a simple Web application for mortgage calculation
 # Current features and scope:
 
 1) Based on user data calculating the Mortgage details for a Term and Amortization Period
-2) Showing below calculated Number of Payments, Mortgage Payment, Principal Payments, Interest Payments, Total Cost for Term and Amortization period separately including table display.
+2) Showing calculated Number of Payments, Mortgage Payment, Principal Payments, Interest Payments, Total Cost for Term and Amortization period separately including table display.
 3) Certain values(Interest Rate, Amortization Period year, Payment Frequency, Term) are loading with default value in the user form.
 4) There are required validation in the form and showing error message to the user.
 4) Displaying tooltip for user help text.
