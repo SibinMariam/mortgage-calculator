@@ -1,0 +1,127 @@
+<div class="mortgage-summary" *ngIf="summaryInfo && summaryInfo.payPerPeriod">
+  <h4>Calculation Summary</h4>
+  <div class="summary-content">
+    <div class="table-responsive">
+      <table class="table table-striped table-hover table-bordered">
+        <thead>
+          <tr>
+            <th>Category</th>
+            <th>Term</th>
+            <th>Amortization Period</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Number of Payments</td>
+            <td>
+              {{ summaryInfo.termNoOfPayments }}
+            </td>
+            <td>
+              {{ summaryInfo.amortizationNoOfPayments }}
+            </td>
+          </tr>
+          <tr>
+            <td>Mortgage Payment</td>
+            <td>
+              {{ summaryInfo.payPerPeriod }}
+            </td>
+            <td>
+              {{ summaryInfo.payPerPeriod }}
+            </td>
+          </tr>
+          <tr>
+            <td>Principal Payments</td>
+            <td>
+              {{ summaryInfo.termTotalTermPrincipalPaid }}
+            </td>
+            <td>
+              {{ summaryInfo.amortizationTotalTermPrincipalPaid }}
+            </td>
+          </tr>
+          <tr>
+            <td>Interest Payments</td>
+            <td>
+              {{ summaryInfo.termTotalInterestPaid }}
+            </td>
+            <td>
+              {{ summaryInfo.amortizationTotalInterestPaid }}
+            </td>
+          </tr>
+          <tr>
+            <td>Total Cost</td>
+            <td>
+              {{ summaryInfo.termTotalCost }}
+            </td>
+            <td>
+              {{ summaryInfo.amortizationTotalCost }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <h4 class="summary-title">Mortgage Summary</h4>
+    <div class="summary-content">
+      <div class="amortization-summary">
+        <h6>Amortization Info</h6>
+        <div>
+          During the term period of
+          <span class="bold-info"
+            >{{ summaryInfo.amortizationDuration }},
+          </span>
+          you will have made
+          <span class="bold-info">{{
+            summaryInfo.amortizationNoOfPayments
+          }}</span>
+          payments of
+          <span class="bold-info">{{ summaryInfo.payPerPeriod }}.</span>
+          <div>
+            You have paid
+            <span class="bold-info">{{
+              summaryInfo.amortizationTotalTermPrincipalPaid
+            }}</span>
+            in principal,
+            <span class="bold-info"
+              >{{ summaryInfo.amortizationTotalInterestPaid }}
+            </span>
+            in interest, for a total of
+            <span class="bold-info"
+              >{{ summaryInfo.amortizationTotalCost }}.</span
+            >
+          </div>
+        </div>
+      </div>
+      <div class="term-summary">
+        <h6>Term Info</h6>
+        <div>
+          During the term period of
+          <span class="bold-info">{{ summaryInfo.termDuration }}</span>
+          Year, you will have made
+          <span class="bold-info">{{ summaryInfo.termNoOfPayments }}</span>
+          payments of
+          <span class="bold-info">{{ summaryInfo.payPerPeriod }}.</span>
+        </div>
+        <div>
+          You have paid
+          <span class="bold-info">{{
+            summaryInfo.termTotalTermPrincipalPaid
+          }}</span>
+          in principal,
+          <span class="bold-info"
+            >{{ summaryInfo.termTotalInterestPaid }}
+          </span>
+          in interest, for a total of
+          <span class="bold-info">{{ summaryInfo.termTotalCost }}.</span>
+          <div>
+            And have a balance of
+            <span class="bold-info"
+              >{{
+                summaryInfo.amortizationTotalTermPrincipalPaid -
+                  summaryInfo.termTotalTermPrincipalPaid
+              }}.
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

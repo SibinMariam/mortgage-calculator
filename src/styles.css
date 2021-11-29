@@ -1,0 +1,19 @@
+@import "~bootstrap/dist/css/bootstrap.css";
+@import "~bootstrap-icons/font/bootstrap-icons.css";
+
+body {
+  font-size: 14px;
+  font-weight: 400;
+  font-style: normal;
+  margin: 0;
+  padding: 0;
+  min-width: 320px;
+  color: #4c4c4c;
+  line-height: 1.47059;
+  letter-spacing: -0.022em;
+}
+.more-info-icon {
+  color: #1c1b1dd4;
+  cursor: pointer;
+  padding-left: 4px;
+}

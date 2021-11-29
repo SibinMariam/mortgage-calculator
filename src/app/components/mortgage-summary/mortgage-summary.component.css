@@ -1,0 +1,17 @@
+.mortgage-summary {
+  padding-top: 40px;
+}
+.term-summary {
+  padding-top: 25px;
+}
+.summary-title {
+  border-bottom: 1px solid #dedede;
+  padding-bottom: 12px;
+}
+.summary-content {
+  margin-top: 20px;
+}
+.bold-info {
+  font-weight: 600;
+  padding-left: 2px;
+}
