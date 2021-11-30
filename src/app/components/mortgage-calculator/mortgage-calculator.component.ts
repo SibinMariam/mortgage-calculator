@@ -100,7 +100,7 @@ export class MortgageCalculatorComponent implements OnInit {
       }
       currentPeriod++;
     }
-    /** 
+    /**
      * Rounding the calculated values.
      * In actual banking or business scenario this could be implemented using specific rounding algoithm.
     */
