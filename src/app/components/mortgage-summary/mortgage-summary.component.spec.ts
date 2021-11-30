@@ -28,25 +28,24 @@ describe("MortgageSummaryComponent", () => {
 
   it('Mocking summaryInfo and checking if summary section is displaying with summary content, Table, Mortgage summary sections', () => {
     component.summaryInfo = {
-      payPerPeriod: 920.1345384255877,
+      payPerPeriod: 876.04,
       amortizationNoOfPayments: 120,
       termNoOfPayments: 12,
-      amortizationDuration:
-        10,
+      amortizationDuration: "10 Years",
       termDuration: 1,
-      amortizationTotalInterestPaid: 10416.144611073101,
-      termTotalInterestPaid: 1916.6563502075232,
+      amortizationTotalInterestPaid: 5124.95,
+      termTotalInterestPaid: 956.28,
       amortizationTotalPrincipalPaid: 100000,
-      termTotalTermPrincipalPaid: 1912.5594621010237,
-      amortizationTotalCost: 110416.1446110731,
-      termTotalCost: 11041.614461107052,
-    }
+      termTotalTermPrincipalPaid: 9556.2,
+      amortizationTotalCost: 10512.48,
+      termTotalCost: 105124.95
+    };
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
     expect(fixture.debugElement.query(By.css('.summary-content'))).toBeDefined();
     expect(fixture.debugElement.query(By.css('.table'))).toBeDefined();
-    expect(compiled.querySelector(".mortgage-summary").textContent).toContain(
-      "Mortgage Summary"
+    expect(compiled.querySelector('.mortgage-summary').textContent).toContain(
+      'Mortgage Summary'
     );
   });
 

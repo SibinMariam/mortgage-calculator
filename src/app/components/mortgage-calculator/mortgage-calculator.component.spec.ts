@@ -68,7 +68,7 @@ describe("MortgageCalculatorComponent", () => {
 
   it("Should call onSubmit method on form button click", async(() => {
     spyOn(component, "onSubmit");
-    let button = fixture.debugElement.nativeElement.querySelector("button");
+    const button = fixture.debugElement.nativeElement.querySelector("button");
     button.click();
     fixture.whenStable().then(() => {
       expect(component.onSubmit).toHaveBeenCalled();
@@ -128,7 +128,7 @@ describe("MortgageCalculatorComponent", () => {
       term: 1,
     };
     component.getPaymentDetails();
-    expect((component.summaryInfo.payPerPeriod)).toBe(876.0412137016195)
+    expect((component.summaryInfo.payPerPeriod)).toBe(876.04);
   });
 
   describe("When submit is fired", () => {
@@ -161,12 +161,12 @@ describe("MortgageCalculatorComponent", () => {
       term: Constants.defaultTerm,
     };
     component.getPaymentDetails();
-    expect(isNaN(Number(component.formData.mortgageAmount))).toBe(false)
-    expect(isNaN(Number(component.formData.interestRate))).toBe(false)
-    expect(isNaN(Number(component.formData.amortizationPeriodMonth))).toBe(false)
+    expect(isNaN(Number(component.formData.mortgageAmount))).toBe(false);
+    expect(isNaN(Number(component.formData.interestRate))).toBe(false);
+    expect(isNaN(Number(component.formData.amortizationPeriodMonth))).toBe(false);
   });
 
-  it("Invoke getPaymentDetails method by setting mock form data and check Term no of payments and amortization no of paymenyts are correct", () => {
+  it("Invoke getPaymentDetails with mock form data and check Term and amortization no of paymenyts are correct", () => {
     component.formData = {
       mortgageAmount: 100000,
       interestRate: 1,
@@ -177,7 +177,7 @@ describe("MortgageCalculatorComponent", () => {
       term: 1,
     };
     component.getPaymentDetails();
-    expect((component.summaryInfo.amortizationNoOfPayments)).toBe(120)
-    expect((component.summaryInfo.termNoOfPayments)).toBe(12)
+    expect((component.summaryInfo.amortizationNoOfPayments)).toBe(120);
+    expect((component.summaryInfo.termNoOfPayments)).toBe(12);
   });
 });

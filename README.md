@@ -11,16 +11,17 @@ Its a simple Web application for mortgage calculation
 5) Unit test cases for components.
 
 Application screen: 
-<img width="869" alt="Screen Shot 2021-11-29 at 7 17 32 PM" src="https://user-images.githubusercontent.com/95212148/143980087-68bca61f-3996-4273-9cf1-8527590bd2a1.png">
+<img width="1366" alt="Screen Shot 2021-11-29 at 12 49 10 AM" src="https://user-images.githubusercontent.com/95212148/143836559-516f79b7-54ae-48a3-946a-237784484d84.png">
 
-Complete screen with summary
-![screencapture-localhost-4200-2021-11-29-19_18_22](https://user-images.githubusercontent.com/95212148/143980129-5f52bde0-33be-45b0-84ce-54a202bba888.png)
+
+
+Screen with summary Info:
+![screencapture-localhost-4200-2021-11-29-00_48_37](https://user-images.githubusercontent.com/95212148/143836245-8de73236-1d9e-4bc5-b96e-7a45d421335a.png)
 
 # Future scope:
 
 1) Detailed transaction display for each period.
 2) More interactive data visualizations and projections using charts.
-3) Include round off algorithm for value display.
 
 All static values in the project are configured in constants.ts file.
 
@@ -39,8 +40,6 @@ Unit testing:  Jasmine & Karma
 Run `ng serve`. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 To check the code coverage ng test --watch=false --code-coverage
-
-
 
 
 
