@@ -34,8 +34,8 @@ describe("MortgageSummaryComponent", () => {
       amortizationDuration:
         10,
       termDuration: 1,
-      amortizationTotalInterestPaid: 10,
-      termTotalInterestPaid: 10,
+      amortizationTotalInterestPaid: 10416.144611073101,
+      termTotalInterestPaid: 1916.6563502075232,
       amortizationTotalPrincipalPaid: 100000,
       termTotalTermPrincipalPaid: 1912.5594621010237,
       amortizationTotalCost: 110416.1446110731,
