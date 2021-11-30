@@ -35,7 +35,7 @@
               {{ summaryInfo.termTotalTermPrincipalPaid }}
             </td>
             <td>
-              {{ summaryInfo.amortizationTotalTermPrincipalPaid }}
+              {{ summaryInfo.amortizationTotalPrincipalPaid }}
             </td>
           </tr>
           <tr>
@@ -59,7 +59,7 @@
         </tbody>
       </table>
     </div>
-    <h4 class="summary-title">Mortgage Summary</h4>
+    <h4 class="summary-title mortgage-summary">Mortgage Summary</h4>
     <div class="summary-content">
       <div class="amortization-summary">
         <h6>Amortization Info</h6>
@@ -77,7 +77,7 @@
           <div>
             You have paid
             <span class="bold-info">{{
-              summaryInfo.amortizationTotalTermPrincipalPaid
+              summaryInfo.amortizationTotalPrincipalPaid
             }}</span>
             in principal,
             <span class="bold-info"
@@ -115,7 +115,7 @@
             And have a balance of
             <span class="bold-info"
               >{{
-                summaryInfo.amortizationTotalTermPrincipalPaid -
+                summaryInfo.amortizationTotalPrincipalPaid -
                   summaryInfo.termTotalTermPrincipalPaid
               }}.
             </span>

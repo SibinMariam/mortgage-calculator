@@ -25,16 +25,18 @@ describe("MortgageCalculatorComponent", () => {
   it("should create", () => {
     expect(component).toBeTruthy();
   });
+
   it("should render header as Mortgage Payment Calculator in a h4 tag", async(() => {
-    const fixture = TestBed.createComponent(MortgageCalculatorComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector("h4").textContent).toContain(
-      "Mortgage Payment Calculator"
-    );
+    fixture.whenStable().then(() => {
+      expect(compiled.querySelector("h4").textContent).toContain(
+        "Mortgage Payment Calculator"
+      );
+    });
   }));
 
-  it("Should render all form fields", () => {
+  it("Should render all form fields", async(() => {
     const compiled = fixture.debugElement.nativeElement;
     const mortgageAmount = compiled.querySelector('input[id="mortgageAmount"]');
     const interestRate = compiled.querySelector('input[id="interestRate"]');
@@ -58,7 +60,12 @@ describe("MortgageCalculatorComponent", () => {
     expect(paymentFrequency).toBeTruthy();
     expect(term).toBeTruthy();
     expect(mortgageSubmit).toBeTruthy();
+  }));
+
+  it("Calulate button should be present in the screen", async () => {
+    expect(fixture.debugElement.query(By.css('.mortgageSubmit'))).toBeDefined();
   });
+
   it("Should call onSubmit method on form button click", async(() => {
     spyOn(component, "onSubmit");
     let button = fixture.debugElement.nativeElement.querySelector("button");
@@ -67,6 +74,7 @@ describe("MortgageCalculatorComponent", () => {
       expect(component.onSubmit).toHaveBeenCalled();
     });
   }));
+
   it("InterestRate default value should set as 2.5", async(() => {
     const compiled = fixture.debugElement.nativeElement;
     fixture.detectChanges();
@@ -77,6 +85,7 @@ describe("MortgageCalculatorComponent", () => {
       expect(interestRate).toBe("2.5");
     });
   }));
+
   it("Amortization default year should set as 25", async(() => {
     const compiled = fixture.debugElement.nativeElement;
     fixture.detectChanges();
@@ -89,6 +98,7 @@ describe("MortgageCalculatorComponent", () => {
       );
     });
   }));
+
   it("Default Payment Frequency should set as Monthly", async(() => {
     const compiled = fixture.debugElement.nativeElement;
     fixture.detectChanges();
@@ -99,49 +109,30 @@ describe("MortgageCalculatorComponent", () => {
       expect(amortizationPeriodYear).toBe(Constants.defaultpayOption);
     });
   }));
-  // it("MortgageAmount Error message block should be hidden on load", () => {
-  //   fixture.whenStable().then(() => {
-  //     expect(
-  //       fixture.debugElement.query(By.css(".mortgageAmountError")).nativeElement
-  //     ).toBeFalsy();
-  //   });
-  // });
-  // it("InterestRate Error message block should be hidden on load", () => {
-  //   fixture.whenStable().then(() => {
-  //     expect(
-  //       fixture.debugElement.query(By.css(".interestRateError")).nativeElement
-  //     ).toBeFalsy();
-  //   });
-  // });
 
-  // it("InterestRate Error message block should display on sumbit with empty mortgageAmount", () => {
-  //   fixture.whenStable().then(() => {
-  //     let component = fixture.componentInstance;
-  //     component.formData.mortgageAmount = null;
-  //     let button = fixture.debugElement.nativeElement.querySelector("button");
-  //     button.click();
-  //     fixture.detectChanges();
-  //     expect(
-  //       fixture.debugElement.query(By.css(".mortgageAmountError")).nativeElement
-  //     ).toBeTruthy();
-  //   });
-  // });
-
-  it("should call onSubmit method on form submit", () => {
+  it("should call onSubmit method on form submit", async(() => {
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
     const getForm = fixture.debugElement.query(By.css("#mortgageForm"));
     expect(getForm.triggerEventHandler("submit", compiled)).toBeUndefined();
+  }));
+
+  it("Invoke getPaymentDetails method by setting mock form data and check Mortgage Amount is correct", () => {
+    component.formData = {
+      mortgageAmount: 100000,
+      interestRate: 1,
+      amortizationPeriodYear: 10,
+      amortizationPeriodMonth: null,
+      defaultamortizationPeriod: 10,
+      paymentFrequency: "MONTHLY",
+      term: 1,
+    };
+    component.getPaymentDetails();
+    expect((component.summaryInfo.payPerPeriod)).toBe(876.0412137016195)
   });
-  // it("should call getPaymentDetails() method on form submit", () => {
-  //   component.onSubmit();
 
-  //   expect(component.isFormValid).toHaveBeenCalledTimes(1);
-
-  //   // expect(component.getPaymentDetails).toHaveBeenCalledTimes(1);
-  // });
   describe("When submit is fired", () => {
-    beforeEach(() => {
+    beforeEach(async(() => {
       component.formData = {
         mortgageAmount: 10,
         interestRate: Constants.defaultInterestRate,
@@ -153,9 +144,40 @@ describe("MortgageCalculatorComponent", () => {
       };
       spyOn(component, "getPaymentDetails");
       component.onSubmit();
-    });
+    }));
     it("getPaymentDetails method should be called", () => {
       expect(component.getPaymentDetails).toHaveBeenCalled();
     });
+  });
+
+  it("Invoke getPaymentDetails method by setting mock form data and check if Amount number conversion is correct", () => {
+    component.formData = {
+      mortgageAmount: "10000",
+      interestRate: Constants.defaultInterestRate,
+      amortizationPeriodYear: Constants.defaultamortizationPeriod,
+      amortizationPeriodMonth: null,
+      defaultamortizationPeriod: Constants.defaultamortizationPeriod,
+      paymentFrequency: Constants.defaultpayOption,
+      term: Constants.defaultTerm,
+    };
+    component.getPaymentDetails();
+    expect(isNaN(Number(component.formData.mortgageAmount))).toBe(false)
+    expect(isNaN(Number(component.formData.interestRate))).toBe(false)
+    expect(isNaN(Number(component.formData.amortizationPeriodMonth))).toBe(false)
+  });
+
+  it("Invoke getPaymentDetails method by setting mock form data and check Term no of payments and amortization no of paymenyts are correct", () => {
+    component.formData = {
+      mortgageAmount: 100000,
+      interestRate: 1,
+      amortizationPeriodYear: 10,
+      amortizationPeriodMonth: null,
+      defaultamortizationPeriod: 10,
+      paymentFrequency: "MONTHLY",
+      term: 1,
+    };
+    component.getPaymentDetails();
+    expect((component.summaryInfo.amortizationNoOfPayments)).toBe(120)
+    expect((component.summaryInfo.termNoOfPayments)).toBe(12)
   });
 });
