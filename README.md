@@ -11,12 +11,12 @@ Its a simple Web application for mortgage calculation
 5) Unit test cases for components.
 
 Application screen: 
-<img width="1366" alt="Screen Shot 2021-11-29 at 12 49 10 AM" src="https://user-images.githubusercontent.com/95212148/143836559-516f79b7-54ae-48a3-946a-237784484d84.png">
 
-
+<img width="869" alt="Screen Shot 2021-11-29 at 7 17 32 PM" src="https://user-images.githubusercontent.com/95212148/144012636-c0029409-daf5-4d83-8b8a-4aa966fee640.png">
 
 Screen with summary Info:
-![screencapture-localhost-4200-2021-11-29-00_48_37](https://user-images.githubusercontent.com/95212148/143836245-8de73236-1d9e-4bc5-b96e-7a45d421335a.png)
+![screencapture-localhost-4200-2021-11-29-23_16_47](https://user-images.githubusercontent.com/95212148/144012680-d108f634-a5f0-4c97-8baa-24f487cea74c.png)
+
 
 # Future scope:
 
